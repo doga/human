@@ -1,0 +1,58 @@
+#                                                                                 
+#                                                                  ..              .###=             
+#                                                             .+.#####.           .####*             
+#                                 *###:        #####-          .####* +#*       *######.             
+#                             .####+         =######           *########        +######*.            
+#                            *######+        #######.          ######          .######=              
+#              =######*##-  :#####-    -*.  :#####   +=        .#####           .####+               
+#          -#########.      .#######.        :#####             ######          .#####-              
+#          *#######=#+        -##  .#*      *##-  ##-        +##-  -##.       +##*  *##              
+#        .###-  ##-  +-   *#+:     *#.    +#       ##     *#=       ##.   :##-       ##.             
+#        +#+    :-==.      :.       ..:.   :+=      --:=.            .:-:.   ..       #####.         
+#                                                                                                    
+
+BASE <https://raw.githubusercontent.com/doga/human/main/human.ttl>
+
+PREFIX : <#>
+# PREFIX vann: <http://purl.org/vocab/vann/>
+# PREFIX vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#>
+# PREFIX dct: <http://purl.org/dc/terms/>
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+# PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+
+<>
+  a owl:Ontology;
+  rdfs:label "Human Ontology"^^xsd:string;
+  rdfs:comment "An OWL2 ontology"^^xsd:string;
+  # owl:imports <http://purl.org/vocab/vann/> ;
+  # owl:imports <http://www.w3.org/2003/06/sw-vocab-status/ns> ;
+  owl:versionIRI <#1.0>.
+
+:Human
+  a owl:Class;
+  rdfs:subClassOf [ # At most one gender property, value has type Gender.
+    rdf:type owl:Restriction;
+    owl:onProperty :gender;
+    owl:maxQualifiedCardinality "1"^^xsd:integer;
+    owl:onClass :Gender 
+  ].
+
+:Gender
+  a owl:Class; 
+  owl:unionOf (
+    "Male"^^xsd:string "Female"^^xsd:string 
+  ).
+
+:gender
+  a owl:DatatypeProperty; # a property whose range is a literal
+  rdfs:domain :Human;
+  rdfs:range :Gender.
+
+# <#language>
+#   a owl:DatatypeProperty; # range is a literal
+#   rdfs:domain :Human;
+#   rdfs:range xsd:string.
