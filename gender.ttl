@@ -1,0 +1,37 @@
+
+
+BASE <https://raw.githubusercontent.com/doga/human/main/gender.ttl>
+
+PREFIX : <#>
+# PREFIX vann: <http://purl.org/vocab/vann/>
+# PREFIX vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#>
+# PREFIX dct: <http://purl.org/dc/terms/>
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+<>
+  a owl:Ontology;
+  rdfs:label "Ontology for gender information"^^xsd:string;
+  rdfs:comment "An OWL2 ontology"^^xsd:string;
+  # owl:imports <http://purl.org/vocab/vann/> ;
+  # owl:imports <http://www.w3.org/2003/06/sw-vocab-status/ns> ;
+  owl:versionIRI <./1.0>.
+
+
+:Gender # subtype of string
+  # a owl:Class; 
+  # owl:unionOf (
+  #   "Male"^^xsd:string "Female"^^xsd:string 
+  # ).
+  rdfs:subClassOf [
+    rdf:type owl:Restriction;
+    owl:allValuesFrom [
+      rdf:type rdfs:Datatype;
+      owl:onDatatype xsd:string;
+      owl:withRestrictions ([xsd:pattern 'Male|Female'])
+    ]
+  ].
+

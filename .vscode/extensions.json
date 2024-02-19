@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "stardog-union.vscode-langserver-turtle",
+    "stardog-union.stardog-rdf-grammars",
+    "marklindeman.turtle-vocab-autocomplete",
+    "dotjoshjohnson.xml"
+  ]
+}
