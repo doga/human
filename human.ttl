@@ -32,7 +32,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   rdfs:comment "An OWL2 ontology"@en;
   owl:imports <gender.ttl>;
   owl:imports <language.ttl>;
-  owl:versionIRI <./1.0>.
+  owl:versionIRI <#1.0>.
 
 :Human
   a owl:Class;
@@ -41,12 +41,6 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   rdfs:subClassOf [ # At most one gender property
     rdf:type owl:Restriction;
     owl:onProperty :gender;
-    owl:maxCardinality "1"^^xsd:integer;
-  ];
-
-  rdfs:subClassOf [
-    rdf:type owl:Restriction;
-    owl:onProperty :language;
     owl:maxCardinality "1"^^xsd:integer;
   ].
 
@@ -63,8 +57,12 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   rdfs:domain :Human;
   rdfs:range language:Language.
 
-# Individuals (OWL class instances)
+# Language individuals
 :EnglishLanguage owl:sameAs language:English.
 :FrenchLanguage owl:sameAs language:French.
 :GermanLanguage owl:sameAs language:German.
 :TurkishLanguage owl:sameAs language:Turkish.
+
+# Gender individuals
+:Male owl:sameAs gender:Male.
+:Female owl:sameAs gender:Female.

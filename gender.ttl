@@ -14,24 +14,33 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <>
   a owl:Ontology;
-  rdfs:label "Ontology for gender information"^^xsd:string;
-  rdfs:comment "An OWL2 ontology"^^xsd:string;
+  rdfs:label "Human gender"^^xsd:string;
+  rdfs:comment "The gender of a human."^^xsd:string;
   # owl:imports <http://purl.org/vocab/vann/> ;
   # owl:imports <http://www.w3.org/2003/06/sw-vocab-status/ns> ;
-  owl:versionIRI <./1.0>.
+  owl:versionIRI <#1.0>.
 
 
-:Gender # subtype of string
-  # a owl:Class; 
-  # owl:unionOf (
-  #   "Male"^^xsd:string "Female"^^xsd:string 
-  # ).
-  rdfs:subClassOf [
-    rdf:type owl:Restriction;
-    owl:allValuesFrom [
-      rdf:type rdfs:Datatype;
-      owl:onDatatype xsd:string;
-      owl:withRestrictions ([xsd:pattern 'Male|Female'])
-    ]
-  ].
+:Gender 
+  a rdfs:Datatype;
+  owl:oneOf (
+    :Male :Female
+  ).
+  # rdfs:subClassOf [
+  #   rdf:type owl:Restriction;
+  #   owl:allValuesFrom [
+  #     rdf:type rdfs:Datatype;
+  #     owl:onDatatype xsd:string;
+  #     owl:withRestrictions ([xsd:pattern 'Male|Female'])
+  #   ]
+  # ].
+
+:Male
+  a rdfs:Datatype;
+  owl:hasValue 'Male'.
+
+:Female
+  a rdfs:Datatype;
+  owl:hasValue 'Female'.
+
 

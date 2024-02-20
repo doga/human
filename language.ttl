@@ -18,7 +18,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   rdfs:comment "An OWL2 ontology"^^xsd:string;
   # owl:imports <http://purl.org/vocab/vann/> ;
   # owl:imports <http://www.w3.org/2003/06/sw-vocab-status/ns> ;
-  owl:versionIRI <./1.0>.
+  owl:versionIRI <#1.0>.
 
 :Language
   a owl:Class;
