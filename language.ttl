@@ -14,26 +14,29 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <>
   a owl:Ontology;
-  rdfs:label "Ontology for human languages"^^xsd:string;
+  rdfs:label "Human languages"^^xsd:string;
   rdfs:comment "An OWL2 ontology"^^xsd:string;
   # owl:imports <http://purl.org/vocab/vann/> ;
   # owl:imports <http://www.w3.org/2003/06/sw-vocab-status/ns> ;
   owl:versionIRI <#1.0>.
 
+# Language class
 :Language
   a owl:Class;
   rdfs:comment "Any human language."@en;
+  owl:hasKey (:code);
   rdfs:subClassOf [
     rdf:type owl:Restriction;
     owl:onProperty :code;
-    owl:cardinality "1"^^xsd:integer;
+    owl:minCardinality "1"^^xsd:integer;
   ].
 
 :code
   a owl:DatatypeProperty;
-  rdfs:comment "The ISO code of a human language."@en;
+  rdfs:comment "The ISO code for a human language."@en;
   rdfs:domain :Language;
-  rdfs:range [owl:unionOf (:Code639_1 :Code639_2)].
+  rdfs:range [owl:unionOf (:Code639_1 :Code639_2)];
+  rdfs:seeAlso <https://www.loc.gov/standards/iso639-2/php/code_list.php>.
 
 :Code639_1 # subtype of string
   rdfs:isDefinedBy <https://en.wikipedia.org/wiki/ISO_639-1>;
@@ -57,10 +60,12 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     ]
   ].
 
+
+# Some individuals
 :English
   a :Language;
   rdfs:comment "The English language."@en;
-  :code 'fr';
+  :code 'en', 'eng';
   rdfs:isDefinedBy
     <https://w3id.org/idsa/code/EN>,
     <https://www.britannica.com/topic/English-language>.
@@ -68,18 +73,18 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 :French
   a :Language;
   rdfs:comment "The French language."@en;
-  :code 'fr';
+  :code 'fr', 'fre', 'fra';
   rdfs:isDefinedBy <https://w3id.org/idsa/code/FR>.
 
 :German
   a :Language;
   rdfs:comment "The German language."@en;
-  :code 'de';
+  :code 'de', 'ger', 'deu';
   rdfs:isDefinedBy <https://w3id.org/idsa/code/DE>.
 
 :Turkish
   a :Language;
   rdfs:comment "The Turkish language."@en;
-  :code 'tr';
+  :code 'tr', 'tur';
   rdfs:isDefinedBy <https://w3id.org/idsa/code/TR>.
 
