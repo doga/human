@@ -57,12 +57,12 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   rdfs:domain :Human;
   rdfs:range language:Language.
 
-# Language individuals
+# Language imports
 :EnglishLanguage owl:sameAs language:English.
 :FrenchLanguage owl:sameAs language:French.
 :GermanLanguage owl:sameAs language:German.
 :TurkishLanguage owl:sameAs language:Turkish.
 
-# Gender individuals
+# Gender imports
 :Male owl:sameAs gender:Male.
 :Female owl:sameAs gender:Female.

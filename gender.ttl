@@ -21,6 +21,12 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   owl:versionIRI <#1.0>.
 
 
+# Individuals
+:Male owl:sameAs 'Male'.
+:Female owl:sameAs 'Female'.
+
+
+# Class
 :Gender 
   a rdfs:Datatype;
   owl:oneOf (
@@ -34,13 +40,5 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   #     owl:withRestrictions ([xsd:pattern 'Male|Female'])
   #   ]
   # ].
-
-:Male
-  a rdfs:Datatype;
-  owl:hasValue 'Male'.
-
-:Female
-  a rdfs:Datatype;
-  owl:hasValue 'Female'.
 
 
