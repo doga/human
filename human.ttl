@@ -16,7 +16,7 @@ BASE <https://raw.githubusercontent.com/doga/human/main/human.ttl>
 PREFIX : <#> # prefix for the defined terms
 PREFIX gender: <gender.ttl#>
 PREFIX language: <language.ttl#>
-# PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX vann: <http://purl.org/vocab/vann/>
 # PREFIX vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#>
 # PREFIX dct: <http://purl.org/dc/terms/>
 
@@ -26,13 +26,17 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 # PREFIX xml: <http://www.w3.org/XML/1998/namespace>
 
+vann:preferredNamespacePrefix a owl:AnnotationProperty.
+
 <>
   a owl:Ontology;
   rdfs:label "Human Ontology"^^xsd:string;
   rdfs:comment "An OWL2 ontology"@en;
+  vann:preferredNamespacePrefix 'hu';
   owl:imports <gender.ttl>;
   owl:imports <language.ttl>;
   owl:versionIRI <#1.0>.
+
 
 :Human
   a owl:Class;
