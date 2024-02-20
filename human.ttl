@@ -51,7 +51,8 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   ].
 
 :gender
-  a owl:ObjectProperty;
+  a owl:DatatypeProperty;
+  # a owl:ObjectProperty;
   rdfs:comment "The gender of a human."@en;
   rdfs:domain :Human;
   rdfs:range gender:Gender.
