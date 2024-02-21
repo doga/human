@@ -32,7 +32,7 @@ vann:preferredNamespacePrefix a owl:AnnotationProperty.
   a owl:Ontology;
   rdfs:label "Human Ontology"^^xsd:string;
   rdfs:comment "An OWL2 ontology"@en;
-  vann:preferredNamespacePrefix 'hu';
+  vann:preferredNamespacePrefix 'hmn';
   owl:imports <gender.ttl>;
   owl:imports <language.ttl>;
   owl:versionIRI <#1.0>.

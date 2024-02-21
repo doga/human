@@ -3,10 +3,10 @@
 BASE <https://raw.githubusercontent.com/doga/human/main/language.ttl>
 
 PREFIX : <#>
+
 # PREFIX vann: <http://purl.org/vocab/vann/>
 # PREFIX vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#>
 # PREFIX dct: <http://purl.org/dc/terms/>
-
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -28,14 +28,16 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   rdfs:subClassOf [
     rdf:type owl:Restriction;
     owl:onProperty :code;
-    owl:minCardinality "1"^^xsd:integer;
+    owl:cardinality "1"^^xsd:integer;
   ].
 
 :code
   a owl:DatatypeProperty;
   rdfs:comment "The ISO code for a human language."@en;
   rdfs:domain :Language;
-  rdfs:range [owl:unionOf (:Code639_1 :Code639_2)];
+  rdfs:range [
+    owl:unionOf (:Code639_1 :Code639_2)
+  ];
   rdfs:seeAlso <https://www.loc.gov/standards/iso639-2/php/code_list.php>.
 
 :Code639_1 # subtype of string
