@@ -62,6 +62,8 @@ vann:preferredNamespacePrefix a owl:AnnotationProperty.
   rdfs:range language:Language.
 
 # Language imports
+:Language owl:sameAs language:Language.
+:languageCode owl:sameAs language:code.
 :EnglishLanguage owl:sameAs language:English.
 :FrenchLanguage owl:sameAs language:French.
 :GermanLanguage owl:sameAs language:German.
